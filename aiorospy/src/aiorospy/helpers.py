@@ -4,10 +4,14 @@ import functools
 import logging
 import subprocess
 import time
+import sys
 
 import janus
 import rospy
-from async_generator import asynccontextmanager
+if sys.version_info >= (3,7):
+    from contextlib import asynccontextmanager
+else:
+    from async_generator import asynccontextmanager
 
 logger = logging.getLogger(__name__)
 
